@@ -31,6 +31,7 @@ const onInput = e => {
 const onSubmit = () => {
   localStorage.removeItem('feedback-form-state');
   formEl.reset();
+  console.log(formData);
 };
 formEl.addEventListener('input', throttle(onInput, 500));
 formEl.addEventListener('submit', onSubmit);
