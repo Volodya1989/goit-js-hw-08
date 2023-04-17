@@ -12,6 +12,9 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+ul.gallery {
   list-style: none;
 }
 
