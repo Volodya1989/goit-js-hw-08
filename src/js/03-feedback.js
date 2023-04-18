@@ -4,8 +4,8 @@ const formData = {};
 const formEl = document.querySelector('.feedback-form');
 const emailInputEl = document.querySelector("input[name='email']");
 const textInputEl = document.querySelector("textarea[name='message']");
-
 const gettingFormData = JSON.parse(localStorage.getItem('feedback-form-state'));
+
 const updateFormData = () => {
   if (gettingFormData !== null) {
     emailInputEl.value =
@@ -20,6 +20,7 @@ const updateFormData = () => {
 const onInput = e => {
   formData[e.target.name.trim()] = e.target.value.trim();
   localStorage.setItem('feedback-form-state', JSON.stringify(formData));
+
   if (formData.email === undefined) {
     formData.email = '';
   }
@@ -27,7 +28,8 @@ const onInput = e => {
     formData.message = '';
   }
 };
-const onSubmit = () => {
+const onSubmit = e => {
+  e.preventDefault();
   localStorage.removeItem('feedback-form-state');
   formEl.reset();
   console.log(formData);
